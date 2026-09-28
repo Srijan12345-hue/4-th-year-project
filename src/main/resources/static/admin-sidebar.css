@@ -1,0 +1,10 @@
+/* Administrator navigation needs extra room for its full set of labels. */
+.app{grid-template-columns:300px minmax(0,1fr)}
+.sidebar{height:auto;min-height:max(100vh,850px);position:relative}
+.sidebar nav{min-width:0}
+.sidebar .nav-item{width:100%;min-width:0;overflow-wrap:anywhere}
+.sidebar .nav-icon{flex:0 0 18px}
+
+@media(max-width:900px){
+  .sidebar{width:300px;height:100vh;min-height:100vh;position:fixed;overflow-y:auto}
+}
