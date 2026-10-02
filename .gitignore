@@ -1,0 +1,32 @@
+# Maven
+target/
+*.class
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.wrongMode
+release.properties
+dependency-reduced-pom.xml
+build.log
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Application properties (containing secrets)
+src/main/resources/application.properties
+target/classes/application.properties
+.env
+
+
+# Logs
+*.log
+
+# Custom backup folders
+redis-running-fix-backup-*/
