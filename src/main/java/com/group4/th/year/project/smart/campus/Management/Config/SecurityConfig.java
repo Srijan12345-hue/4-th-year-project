@@ -5,6 +5,7 @@ import com.group4.th.year.project.smart.campus.Management.Repo.LibrarianRepo;
 import com.group4.th.year.project.smart.campus.Management.Repo.UserRepo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -64,9 +65,9 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(UserRepo userRepo, LibrarianRepo librarianRepo, PasswordEncoder passwordEncoder) {
+    public UserDetailsService userDetailsService(UserRepo userRepo, LibrarianRepo librarianRepo, PasswordEncoder passwordEncoder, Environment environment) {
         return username -> {
-            UserDetails defaultUser = getDefaultUser(username, passwordEncoder);
+            UserDetails defaultUser = getDefaultUser(username, passwordEncoder, environment);
             if (defaultUser != null) {
                 return defaultUser;
             }
@@ -87,34 +88,18 @@ public class SecurityConfig {
         };
     }
 
-    private UserDetails getDefaultUser(String username, PasswordEncoder passwordEncoder) {
-        return switch (username) {
-            case "admin" -> org.springframework.security.core.userdetails.User.withUsername("admin")
-                    .password(passwordEncoder.encode("[REMOVED]"))
-                    .roles("ADMIN")
-                    .build();
-            case "faculty" -> org.springframework.security.core.userdetails.User.withUsername("faculty")
-                    .password(passwordEncoder.encode("[REMOVED]"))
-                    .roles("FACULTY")
-                    .build();
-            case "student" -> org.springframework.security.core.userdetails.User.withUsername("student")
-                    .password(passwordEncoder.encode("[REMOVED]"))
-                    .roles("STUDENT")
-                    .build();
-            case "security" -> org.springframework.security.core.userdetails.User.withUsername("security")
-                    .password(passwordEncoder.encode("[REMOVED]"))
-                    .roles("SECURITY")
-                    .build();
-            case "librarian" -> org.springframework.security.core.userdetails.User.withUsername("librarian")
-                    .password(passwordEncoder.encode("[REMOVED]"))
-                    .roles("LIBRARIAN")
-                    .build();
-            case "placement" -> org.springframework.security.core.userdetails.User.withUsername("placement")
-                    .password(passwordEncoder.encode("[REMOVED]"))
-                    .roles("PLACEMENT")
-                    .build();
-            default -> null;
-        };
+    private UserDetails getDefaultUser(String username, PasswordEncoder passwordEncoder, Environment environment) {
+        for (String role : new String[] {"admin", "faculty", "student", "security", "librarian", "placement"}) {
+            String configuredUsername = environment.getProperty("app.auth." + role + ".username", "");
+            String configuredPassword = environment.getProperty("app.auth." + role + ".password", "");
+            if (!configuredUsername.isBlank() && !configuredPassword.isBlank() && configuredUsername.equals(username)) {
+                return org.springframework.security.core.userdetails.User.withUsername(configuredUsername)
+                        .password(passwordEncoder.encode(configuredPassword))
+                        .roles(role.toUpperCase())
+                        .build();
+            }
+        }
+        return null;
     }
 
     @Bean
