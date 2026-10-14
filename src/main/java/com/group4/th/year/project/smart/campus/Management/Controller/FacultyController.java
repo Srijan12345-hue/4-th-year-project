@@ -1,8 +1,14 @@
 package com.group4.th.year.project.smart.campus.Management.Controller;
 
+<<<<<<< HEAD
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+=======
+
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+>>>>>>> origin/master
 import com.group4.th.year.project.smart.campus.Management.Faculty;
 import com.group4.th.year.project.smart.campus.Management.Repo.FacultyRepo;
 import org.springframework.http.HttpStatus;
@@ -20,8 +26,13 @@ public class FacultyController {
         this.facultyRepo = facultyRepo;
     }
 
+<<<<<<< HEAD
     @Cacheable(value = "faculties", key = "'all'")
     @GetMapping
+=======
+    @Cacheable(value = "faculties", key = "'all'")
+    @GetMapping
+>>>>>>> origin/master
     public List<Faculty> getFaculties() {
         return facultyRepo.findAll();
     }
@@ -31,14 +42,22 @@ public class FacultyController {
         return facultyRepo.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "faculties", allEntries = true)
+=======
+    @CacheEvict(value = "faculties", allEntries = true)
+>>>>>>> origin/master
     @PostMapping
     public ResponseEntity<Faculty> addFaculty(@RequestBody Faculty faculty) {
         faculty.setId(null);
         return ResponseEntity.status(HttpStatus.CREATED).body(facultyRepo.save(faculty));
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "faculties", allEntries = true)
+=======
+    @CacheEvict(value = "faculties", allEntries = true)
+>>>>>>> origin/master
     @PutMapping("/{id}")
     public ResponseEntity<Faculty> updateFaculty(@PathVariable Long id, @RequestBody Faculty updatedFaculty) {
         return facultyRepo.findById(id)
@@ -50,7 +69,11 @@ public class FacultyController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "faculties", allEntries = true)
+=======
+    @CacheEvict(value = "faculties", allEntries = true)
+>>>>>>> origin/master
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFaculty(@PathVariable Long id) {
         if (!facultyRepo.existsById(id)) {
@@ -60,5 +83,10 @@ public class FacultyController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> origin/master

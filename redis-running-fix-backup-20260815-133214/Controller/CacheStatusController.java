@@ -22,4 +22,8 @@ public class CacheStatusController {
                 .ping();
         return "Redis status: " + response;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

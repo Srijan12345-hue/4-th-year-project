@@ -2,6 +2,7 @@
 
 import com.group4.th.year.project.smart.campus.Management.Course;
 import com.group4.th.year.project.smart.campus.Management.Repo.CoursesRepo;
+<<<<<<< HEAD
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,34 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+=======
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+>>>>>>> origin/master
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -41,7 +70,11 @@ public class CourseController {
         this.coursesRepo = coursesRepo;
     }
 
+<<<<<<< HEAD
     @Cacheable(value = "courses", key = "'all'")
+=======
+    @Cacheable(value = "courses", key = "'all'")
+>>>>>>> origin/master
 
 
     @GetMapping public List<Course> getCourses() {
@@ -55,14 +88,22 @@ public class CourseController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "courses", allEntries = true)
+=======
+    @CacheEvict(value = "courses", allEntries = true)
+>>>>>>> origin/master
     @PostMapping
     public Course addCourse(@RequestBody Course course) {
         course.setId(null);
         return coursesRepo.save(course);
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "courses", allEntries = true)
+=======
+    @CacheEvict(value = "courses", allEntries = true)
+>>>>>>> origin/master
     @PutMapping("/{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestBody Course updatedCourse) {
         return coursesRepo.findById(id)
@@ -76,7 +117,11 @@ public class CourseController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "courses", allEntries = true)
+=======
+    @CacheEvict(value = "courses", allEntries = true)
+>>>>>>> origin/master
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCourse(@PathVariable Long id) {
         if (!coursesRepo.existsById(id)) {
@@ -87,4 +132,8 @@ public class CourseController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master

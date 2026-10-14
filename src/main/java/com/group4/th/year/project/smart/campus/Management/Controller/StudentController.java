@@ -1,8 +1,14 @@
 package com.group4.th.year.project.smart.campus.Management.Controller;
 
+<<<<<<< HEAD
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+=======
+
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+>>>>>>> origin/master
 import com.group4.th.year.project.smart.campus.Management.Student;
 import com.group4.th.year.project.smart.campus.Management.Repo.StudentRepo;
 import org.springframework.http.HttpStatus;
@@ -20,8 +26,13 @@ public class StudentController {
         this.studentRepo = studentRepo;
     }
 
+<<<<<<< HEAD
     @Cacheable(value = "students", key = "'all'")
     @GetMapping
+=======
+    @Cacheable(value = "students", key = "'all'")
+    @GetMapping
+>>>>>>> origin/master
     public List<Student> getStudents() {
         return studentRepo.findAll();
     }
@@ -31,14 +42,22 @@ public class StudentController {
         return studentRepo.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "students", allEntries = true)
+=======
+    @CacheEvict(value = "students", allEntries = true)
+>>>>>>> origin/master
     @PostMapping
     public ResponseEntity<Student> addStudent(@RequestBody Student student) {
         student.setId(null);
         return ResponseEntity.status(HttpStatus.CREATED).body(studentRepo.save(student));
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "students", allEntries = true)
+=======
+    @CacheEvict(value = "students", allEntries = true)
+>>>>>>> origin/master
     @PutMapping("/{id}")
     public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student updatedStudent) {
         return studentRepo.findById(id)
@@ -51,7 +70,11 @@ public class StudentController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "students", allEntries = true)
+=======
+    @CacheEvict(value = "students", allEntries = true)
+>>>>>>> origin/master
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
         if (!studentRepo.existsById(id)) {
@@ -61,5 +84,10 @@ public class StudentController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> origin/master

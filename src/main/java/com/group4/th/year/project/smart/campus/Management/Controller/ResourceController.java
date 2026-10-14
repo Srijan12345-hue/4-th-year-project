@@ -1,8 +1,14 @@
 package com.group4.th.year.project.smart.campus.Management.Controller;
 
+<<<<<<< HEAD
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+=======
+
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+>>>>>>> origin/master
 import com.group4.th.year.project.smart.campus.Management.Resource;
 import com.group4.th.year.project.smart.campus.Management.Repo.ResourceRepo;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +32,13 @@ public class ResourceController {
         this.resourceRepo = resourceRepo;
     }
 
+<<<<<<< HEAD
     @Cacheable(value = "resources", key = "'all'")
     @GetMapping
+=======
+    @Cacheable(value = "resources", key = "'all'")
+    @GetMapping
+>>>>>>> origin/master
     public List<Resource> getResources() {
         return resourceRepo.findAll();
     }
@@ -39,14 +50,22 @@ public class ResourceController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "resources", allEntries = true)
+=======
+    @CacheEvict(value = "resources", allEntries = true)
+>>>>>>> origin/master
     @PostMapping
     public Resource addResource(@RequestBody Resource resource) {
         resource.setId(null);
         return resourceRepo.save(resource);
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "resources", allEntries = true)
+=======
+    @CacheEvict(value = "resources", allEntries = true)
+>>>>>>> origin/master
     @PutMapping("/{id}")
     public ResponseEntity<Resource> updateResource(@PathVariable Long id, @RequestBody Resource updatedResource) {
         return resourceRepo.findById(id)
@@ -59,7 +78,11 @@ public class ResourceController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "resources", allEntries = true)
+=======
+    @CacheEvict(value = "resources", allEntries = true)
+>>>>>>> origin/master
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteResource(@PathVariable Long id) {
         if (!resourceRepo.existsById(id)) {
@@ -70,5 +93,10 @@ public class ResourceController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> origin/master

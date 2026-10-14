@@ -32,4 +32,8 @@ public class SmartCampusController {
         return "Training and placement panel access granted";
     }
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master

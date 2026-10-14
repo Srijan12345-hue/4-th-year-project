@@ -28,7 +28,11 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
+<<<<<<< HEAD
     @GetMapping
+=======
+    @GetMapping
+>>>>>>> origin/master
     public List<User> getUsers() {
         return userRepo.findAll();
     }
@@ -86,4 +90,8 @@ public class UserController {
         }
     }
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master

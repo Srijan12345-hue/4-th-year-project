@@ -20,7 +20,11 @@ public class LibrarianController {
         this.passwordEncoder = passwordEncoder;
     }
 
+<<<<<<< HEAD
     @GetMapping
+=======
+    @GetMapping
+>>>>>>> origin/master
     public List<Librarian> getLibrarians() {
         return librarianRepo.findAll();
     }
@@ -66,4 +70,8 @@ public class LibrarianController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master

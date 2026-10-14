@@ -48,4 +48,8 @@ public class RedisCacheConfig {
                 .transactionAware()
                 .build();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master

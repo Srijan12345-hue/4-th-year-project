@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
         private Long id;
         private String name;
         private String type;
+<<<<<<< HEAD
         private int capacity;
 
         public Resource() {
@@ -60,3 +61,50 @@ import jakarta.persistence.Table;
         }
     }
 
+=======
+        private int capacity;
+
+        public Resource() {
+        }
+
+        public Resource(Long id, String name, String type, int capacity) {
+            this.id = id;
+            this.name = name;
+            this.type = type;
+            this.capacity = capacity;
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public int getCapacity() {
+            return capacity;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public void setCapacity(int capacity) {
+            this.capacity = capacity;
+        }
+    }
+
+>>>>>>> origin/master

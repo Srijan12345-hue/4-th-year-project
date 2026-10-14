@@ -2,6 +2,7 @@
 
 import com.group4.th.year.project.smart.campus.Management.Issue;
 import com.group4.th.year.project.smart.campus.Management.Repo.IssueRepo;
+<<<<<<< HEAD
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,16 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+=======
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+>>>>>>> origin/master
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +34,11 @@ public class IssueController {
         this.issueRepo = issueRepo;
     }
 
+<<<<<<< HEAD
     @Cacheable(value = "issues", key = "'all'")
+=======
+    @Cacheable(value = "issues", key = "'all'")
+>>>>>>> origin/master
 
 
     @GetMapping public List<Issue> getIssues() {
@@ -35,14 +50,22 @@ public class IssueController {
         return issueRepo.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "issues", allEntries = true)
+=======
+    @CacheEvict(value = "issues", allEntries = true)
+>>>>>>> origin/master
     @PostMapping
     public ResponseEntity<Issue> addIssue(@RequestBody Issue issue) {
         issue.setId(null);
         return ResponseEntity.status(HttpStatus.CREATED).body(issueRepo.save(issue));
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "issues", allEntries = true)
+=======
+    @CacheEvict(value = "issues", allEntries = true)
+>>>>>>> origin/master
     @PutMapping("/{id}")
     public ResponseEntity<Issue> updateIssue(@PathVariable Long id, @RequestBody Issue updatedIssue) {
         return issueRepo.findById(id)
@@ -56,7 +79,11 @@ public class IssueController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "issues", allEntries = true)
+=======
+    @CacheEvict(value = "issues", allEntries = true)
+>>>>>>> origin/master
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteIssue(@PathVariable Long id) {
         if (!issueRepo.existsById(id)) {
@@ -66,4 +93,8 @@ public class IssueController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master

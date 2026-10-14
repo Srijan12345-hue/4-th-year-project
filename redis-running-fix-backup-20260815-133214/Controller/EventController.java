@@ -2,6 +2,7 @@
 
 import com.group4.th.year.project.smart.campus.Management.Event;
 import com.group4.th.year.project.smart.campus.Management.Repo.EventRepo;
+<<<<<<< HEAD
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,16 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+=======
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+>>>>>>> origin/master
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +34,11 @@ public class EventController {
         this.eventRepo = eventRepo;
     }
 
+<<<<<<< HEAD
     @Cacheable(value = "events", key = "'all'")
+=======
+    @Cacheable(value = "events", key = "'all'")
+>>>>>>> origin/master
 
 
     @GetMapping public List<Event> getEvents() {
@@ -35,14 +50,22 @@ public class EventController {
         return eventRepo.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "events", allEntries = true)
+=======
+    @CacheEvict(value = "events", allEntries = true)
+>>>>>>> origin/master
     @PostMapping
     public ResponseEntity<Event> addEvent(@RequestBody Event event) {
         event.setId(null);
         return ResponseEntity.status(HttpStatus.CREATED).body(eventRepo.save(event));
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "events", allEntries = true)
+=======
+    @CacheEvict(value = "events", allEntries = true)
+>>>>>>> origin/master
     @PutMapping("/{id}")
     public ResponseEntity<Event> updateEvent(@PathVariable Long id, @RequestBody Event updatedEvent) {
         return eventRepo.findById(id)
@@ -56,7 +79,11 @@ public class EventController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "events", allEntries = true)
+=======
+    @CacheEvict(value = "events", allEntries = true)
+>>>>>>> origin/master
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
         if (!eventRepo.existsById(id)) {
@@ -66,4 +93,8 @@ public class EventController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master

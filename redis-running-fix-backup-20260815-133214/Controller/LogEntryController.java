@@ -2,6 +2,7 @@
 
 import com.group4.th.year.project.smart.campus.Management.LogEntry;
 import com.group4.th.year.project.smart.campus.Management.Repo.LogEntryRepo;
+<<<<<<< HEAD
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,16 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+=======
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+>>>>>>> origin/master
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +34,11 @@ public class LogEntryController {
         this.logEntryRepo = logEntryRepo;
     }
 
+<<<<<<< HEAD
     @Cacheable(value = "logs", key = "'all'")
+=======
+    @Cacheable(value = "logs", key = "'all'")
+>>>>>>> origin/master
 
 
     @GetMapping public List<LogEntry> getLogs() {
@@ -35,14 +50,22 @@ public class LogEntryController {
         return logEntryRepo.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "logs", allEntries = true)
+=======
+    @CacheEvict(value = "logs", allEntries = true)
+>>>>>>> origin/master
     @PostMapping
     public ResponseEntity<LogEntry> addLog(@RequestBody LogEntry logEntry) {
         logEntry.setId(null);
         return ResponseEntity.status(HttpStatus.CREATED).body(logEntryRepo.save(logEntry));
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "logs", allEntries = true)
+=======
+    @CacheEvict(value = "logs", allEntries = true)
+>>>>>>> origin/master
     @PutMapping("/{id}")
     public ResponseEntity<LogEntry> updateLog(@PathVariable Long id, @RequestBody LogEntry updatedLogEntry) {
         return logEntryRepo.findById(id)
@@ -57,7 +80,11 @@ public class LogEntryController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "logs", allEntries = true)
+=======
+    @CacheEvict(value = "logs", allEntries = true)
+>>>>>>> origin/master
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteLog(@PathVariable Long id) {
         if (!logEntryRepo.existsById(id)) {
@@ -67,4 +94,8 @@ public class LogEntryController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master

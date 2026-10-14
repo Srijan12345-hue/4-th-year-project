@@ -2,6 +2,7 @@
 
 import com.group4.th.year.project.smart.campus.Management.Notice;
 import com.group4.th.year.project.smart.campus.Management.Repo.NoticeRepo;
+<<<<<<< HEAD
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,34 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+=======
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+>>>>>>> origin/master
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -41,7 +70,11 @@ public class NoticeController {
         this.noticeRepo = noticeRepo;
     }
 
+<<<<<<< HEAD
     @Cacheable(value = "notices", key = "'all'")
+=======
+    @Cacheable(value = "notices", key = "'all'")
+>>>>>>> origin/master
 
 
     @GetMapping public List<Notice> getNotices() {
@@ -55,14 +88,22 @@ public class NoticeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "notices", allEntries = true)
+=======
+    @CacheEvict(value = "notices", allEntries = true)
+>>>>>>> origin/master
     @PostMapping
     public Notice addNotice(@RequestBody Notice notice) {
         notice.setId(null);
         return noticeRepo.save(notice);
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "notices", allEntries = true)
+=======
+    @CacheEvict(value = "notices", allEntries = true)
+>>>>>>> origin/master
     @PutMapping("/{id}")
     public ResponseEntity<Notice> updateNotice(@PathVariable Long id, @RequestBody Notice updatedNotice) {
         return noticeRepo.findById(id)
@@ -77,7 +118,11 @@ public class NoticeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+<<<<<<< HEAD
     @CacheEvict(value = "notices", allEntries = true)
+=======
+    @CacheEvict(value = "notices", allEntries = true)
+>>>>>>> origin/master
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteNotice(@PathVariable Long id) {
         if (!noticeRepo.existsById(id)) {
@@ -88,4 +133,8 @@ public class NoticeController {
         return ResponseEntity.noContent().build();
     }
 }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> origin/master
